@@ -7,6 +7,8 @@ use Moose;
 has format_options => (
     is         => 'rw',
     isa        => 'HashRef',
+    lazy       => 1,
+    default    => sub { {} },
     auto_deref => 1,
 );
 

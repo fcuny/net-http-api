@@ -22,9 +22,10 @@ enum 'FormatMode' => qw(content-type append);
 has api_format_options => (
     is      => 'rw',
     isa     => 'HashRef',
+    lazy    => 1,
     default => sub {
         my $self = shift;
-        $self->meta->get_api_option('api_format_options');
+        $self->meta->get_api_option('api_format_options') || {};
     }
 );
 
