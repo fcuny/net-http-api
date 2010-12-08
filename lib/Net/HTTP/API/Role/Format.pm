@@ -19,6 +19,15 @@ subtype Format => as 'Str' => where {
 
 enum 'FormatMode' => qw(content-type append);
 
+has api_format_options => (
+    is      => 'rw',
+    isa     => 'HashRef',
+    default => sub {
+        my $self = shift;
+        $self->meta->get_api_option('api_format_options');
+    }
+);
+
 has api_format => (
     is      => 'rw',
     isa     => 'Format',

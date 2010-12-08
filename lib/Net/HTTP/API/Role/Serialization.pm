@@ -69,7 +69,7 @@ sub _load_serializer {
     my $format = shift || $self->api_format;
     my $parser = "Net::HTTP::API::Parser::" . uc($format);
     if (Class::MOP::load_class($parser)) {
-        my $o = $parser->new;
+        my $o = $parser->new(format_options => $self->api_format_options);
         $self->_add_serializer($format => $o);
         return $o;
     }
