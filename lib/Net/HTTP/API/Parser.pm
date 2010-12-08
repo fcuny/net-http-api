@@ -9,7 +9,6 @@ has format_options => (
     isa        => 'HashRef',
     lazy       => 1,
     default    => sub { {} },
-    auto_deref => 1,
 );
 
 sub encode {die "must be implemented"}
