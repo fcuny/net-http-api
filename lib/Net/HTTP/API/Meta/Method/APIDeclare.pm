@@ -9,6 +9,7 @@ my @accepted_options = qw/
   api_base_url
   api_format
   api_format_mode
+  format_options
   api_username
   api_password
   authentication
