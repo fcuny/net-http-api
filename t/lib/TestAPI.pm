@@ -4,8 +4,9 @@ use Net::HTTP::API;
 use HTTP::Response;
 
 net_api_declare fake_api => (
-    api_base_url => 'http://exemple.com',
-    format       => 'json',
+    api_base_url   => 'http://exemple.com',
+    format         => 'json',
+    format_options => { utf8 => 1, }
 );
 
 net_api_method users => (
