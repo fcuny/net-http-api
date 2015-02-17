@@ -53,6 +53,8 @@ sub add_net_api_declare {
 
 1;
 
+__END__
+
 =head1 SYNOPSIS
 
 =head1 DESCRIPTION

@@ -16,6 +16,8 @@ sub decode {die "must be implemented"}
 
 1;
 
+__END__
+
 =head1 SYNOPSIS
 
 =head1 DESCRIPTION

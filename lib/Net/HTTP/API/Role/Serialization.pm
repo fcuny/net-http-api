@@ -77,6 +77,8 @@ sub _load_serializer {
 
 1;
 
+__END__
+
 =head1 SYNOPSIS
 
 =head1 DESCRIPTION

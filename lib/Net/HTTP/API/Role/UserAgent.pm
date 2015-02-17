@@ -23,6 +23,8 @@ has api_useragent => (
 
 1;
 
+__END__
+
 =head1 SYNOPSIS
 
 =head1 DESCRIPTION

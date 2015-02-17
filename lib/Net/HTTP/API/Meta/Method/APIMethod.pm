@@ -83,6 +83,8 @@ after add_net_api_method => sub {
 
 1;
 
+__END__
+
 =head1 SYNOPSIS
 
     my $api_client = MyAPI->new;

@@ -32,6 +32,8 @@ sub error {
 
 1;
 
+__END__
+
 =head1 SYNOPSIS
 
     Net::HTTP::API::Error->new(reason => "'useragent' is required");
