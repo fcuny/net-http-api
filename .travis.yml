@@ -13,4 +13,4 @@ install:
     - dzil listdeps --author --missing | cpanm --no-skip-satisfied || { cat ~/.cpanm/build.log ; false ; }
 
 script:
-    - dzil test --author --release
+    - dzil test --author
