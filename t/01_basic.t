@@ -53,9 +53,9 @@ $api->api_useragent->add_handler(
     'request_send' => sub {
         my $request = shift;
         is $request->method, 'POST', 'POST request';
-        is $request->content,
-          JSON::encode_json({name => 'eris', dob => '01/02/1900'}),
-          'got valid content in POST';
+        my $resp = JSON::decode_json($request->content);
+        is $resp->{name}, 'eris', 'got valid content in JSON response';
+        is $resp->{dob}, '01/02/1900', 'got valid content in JSON response';
         my $res = HTTP::Response->new(201);
         $res->content('{"status":"ok"}');
         $res;
@@ -110,9 +110,12 @@ $api->api_useragent->add_handler(
     random_stuff => 'bar'
 );
 is $res->code, 200, 'code as expected';
-is $res->request->uri,
-  'http://exemple.com/users/unstrict.json?random_stuff=bar&name=eris&last_name=foo',
-  'url is ok with no declared parameters';
+is $res->request->uri->query_param('name'), 'eris', 'url is ok with no declared parameters';
+is $res->request->uri->query_param('random_stuff'), 'bar', 'url is ok with no declared parameters';
+is $res->request->uri->query_param('last_name'), 'foo', 'url is ok with no declared parameters';
+is $res->request->uri->path, '/users/unstrict.json';
+#'http://exemple.com/users/unstrict.json?random_stuff=bar&name=eris&last_name=foo',
+
 
 # params in url and body
 $api->api_useragent->remove_handler('request_send');
