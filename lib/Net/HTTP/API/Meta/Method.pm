@@ -15,7 +15,7 @@ subtype UriPath
     => where { $_ =~ m!^/! }
     => message {"path must start with /"};
 
-enum Method => qw(HEAD GET POST PUT DELETE);
+enum Method => [qw/HEAD GET POST PUT DELETE/];
 
 has path   => (is => 'ro', isa => 'UriPath', required => 1);
 has method => (is => 'ro', isa => 'Method', required => 1);

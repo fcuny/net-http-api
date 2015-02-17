@@ -17,7 +17,7 @@ subtype Format => as 'Str' => where {
     grep {/^$format$/} keys %{content_type()};
 };
 
-enum 'FormatMode' => qw(content-type append);
+enum 'FormatMode' => [qw(content-type append)];
 
 has api_format_options => (
     is      => 'rw',

@@ -6,6 +6,7 @@ use 5.010;
 
 use Try::Tiny;
 use Moose::Role;
+use Class::Load;
 use Net::HTTP::API::Error;
 
 has serializers => (
@@ -68,7 +69,7 @@ sub _load_serializer {
     my $self   = shift;
     my $format = shift || $self->api_format;
     my $parser = "Net::HTTP::API::Parser::" . uc($format);
-    if (Class::MOP::load_class($parser)) {
+    if (Class::Load::load_class($parser)) {
         my $o = $parser->new(format_options => $self->api_format_options);
         $self->_add_serializer($format => $o);
         return $o;
