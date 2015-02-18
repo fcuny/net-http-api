@@ -114,7 +114,7 @@ Net::HTTP::API is a module to help to easily create a client for a web API.
 
 This module is heavily inspired by what L<Net::Twitter> does.
 
-B<THIS MODULE IS IN ITS BETA QUALITY. THE API MAY CHANGE IN THE FUTURE>
+B<THIS MODULE IS DEPRECATED IN FAVOR OF NET::HTTP::SPORE>.
 
 The following roles are added to your class:
 
